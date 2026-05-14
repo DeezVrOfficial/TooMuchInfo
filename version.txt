@@ -1,1 +1,1 @@
-
+1.0.0;You are on an outdated version! Please update CastingShouldBeFree before proceeding. Download the newest release here: https://github.com/DeezVrOfficial/CastingShouldBeFree-FIXED/releases/latest
