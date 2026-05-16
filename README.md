@@ -1,2 +1,2 @@
-# Deez's CastingShouldBeFree-Fixed
+# Deez's TooMuchInfo
 Hope you guys enjoy!
