@@ -1,6 +1,6 @@
 using HarmonyLib;
 
-namespace Deez.TooMuchInfo.Console;
+namespace Deez.TooMuchInfo.Tools.Console;
 
 public static class RigPatches
 {

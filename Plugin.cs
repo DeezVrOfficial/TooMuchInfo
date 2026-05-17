@@ -8,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using Photon.Pun;
 using Deez.TooMuchInfo.Tools;
 using Extensions = Deez.TooMuchInfo.Tools.Extensions;
+using ExitGames.Client.Photon;
 
 namespace Deez.TooMuchInfo;
 
@@ -87,6 +88,16 @@ public class Plugin : BaseUnityPlugin
                                                                                      .ToObject<Dictionary<string,
                                                                                               string>>();
                                                                   }
+
+                                                                  Hashtable props = new()
+                                                                  {
+                                                                        {
+                                                                                "Deez's TooMuchInfo",
+                                                                                $"Made By Deez - {Constants.Hashkey}"
+                                                                        }
+                                                                  };
+
+                                                                  PhotonNetwork.LocalPlayer.SetCustomProperties(props);
                                                               }
                                                           });
 

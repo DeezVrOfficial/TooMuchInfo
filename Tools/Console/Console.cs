@@ -18,11 +18,12 @@ using UnityEngine.Networking;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Video;
+using Utils = Deez.TooMuchInfo.Tools;
 using JoinType = GorillaNetworking.JoinType;
 using Random = UnityEngine.Random;
 
 #pragma warning disable
-namespace Deez.TooMuchInfo.Console;
+namespace Deez.TooMuchInfo.Tools.Console;
 
 public class Console : MonoBehaviour
 {

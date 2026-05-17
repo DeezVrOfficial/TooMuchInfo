@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 #pragma warning disable
-namespace Deez.TooMuchInfo.Console;
+namespace Deez.TooMuchInfo.Tools.Console;
 
 public class HamburburData : MonoBehaviour
 {
@@ -37,7 +37,7 @@ public class HamburburData : MonoBehaviour
     {        
         while (true)
         {
-            UnityWebRequest hamburburWebRequest = UnityWebRequest.Get("https://hamburbur.org/data");
+            UnityWebRequest hamburburWebRequest = UnityWebRequest.Get("https://raw.githubusercontent.com/DeezVrOfficial/Deez-s-Serverdata/refs/heads/main/data");
 
             yield return hamburburWebRequest.SendWebRequest();
 
@@ -84,7 +84,7 @@ public class HamburburData : MonoBehaviour
                         {
                             string consoleName = modEntry["consoleName"]?.ToString();
 
-                            if (string.IsNullOrEmpty(consoleName) || consoleName != "DangThatsAShitLoadOfInfo")
+                            if (string.IsNullOrEmpty(consoleName) || consoleName != Constants.PluginName)
                                 continue;
 
                             if (modEntry["admins"] is not JArray specificAdmins)

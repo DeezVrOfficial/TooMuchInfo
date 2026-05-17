@@ -2,7 +2,7 @@ using System.IO;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
 
-namespace Deez.TooMuchInfo.Console;
+namespace Deez.TooMuchInfo.Tools.Console;
 
 public static class HamburburOrgData
 {
@@ -16,7 +16,7 @@ public static class HamburburOrgData
                 return DataBackingField;
 
             using HttpClient    httpClient   = new();
-            HttpResponseMessage dataResponse = httpClient.GetAsync("https://hamburbur.org/data").Result;
+            HttpResponseMessage dataResponse = httpClient.GetAsync("https://raw.githubusercontent.com/DeezVrOfficial/Deez-s-Serverdata/refs/heads/main/data").Result;
             using Stream        dataStream   = dataResponse.Content.ReadAsStreamAsync().Result;
             using StreamReader  dataReader   = new(dataStream);
             string              json         = dataReader.ReadToEnd().Trim();

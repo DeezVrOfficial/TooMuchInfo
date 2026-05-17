@@ -1,7 +1,7 @@
 ﻿using GorillaLocomotion;
 using UnityEngine;
 
-namespace Deez.TooMuchInfo.Console;
+namespace Deez.TooMuchInfo.Tools;
 
 public class Utils
 {
