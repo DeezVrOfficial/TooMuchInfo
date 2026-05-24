@@ -4,8 +4,12 @@ A mod for Gorilla Tag that gives you too much info about a person
 
 # Installation
 
-- Download the release from [here](https://github.com/iiDk-the-actual/TooMuchInfo/releases/latest)
+- Download the release from [here](https://github.com/DeezVrOfficial/TooMuchInfo/releases/latest)
 - Drag the file `TooMuchInfo.dll` to your plugins folder
 - Start Gorilla Tag if needed
 
-> This product is not affiliated with Gorilla Tag or Another Axiom LLC and is not endorsed or otherwise sponsored by Another Axiom LLC. Portions of the materials contained herein are property of Another Axiom LLC. © 2024 Another Axiom LLC.
+> This product is not affiliated with Gorilla Tag or Another Axiom LLC and is not endorsed or otherwise sponsored by Another Axiom LLC. Portions of the materials contained herein are property of Another Axiom LLC. Â© 2024 Another Axiom LLC.
+
+# Credits
+# Forked from [iiDk](https://github.com/iiDk-the-actual)
+# Some source code from [HanSolo1000Falcon](https://github.com/HanSolo1000Falcon)
