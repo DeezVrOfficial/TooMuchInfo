@@ -45,34 +45,22 @@ public class Plugin : BaseUnityPlugin
         {
             using HttpClient client = new();
 
-            string modsUrl =
+            string dataUrl =
                     "https://raw.githubusercontent.com/DeezVrOfficial/Deez-s-Serverdata/refs/heads/main/data";
 
-            string playersUrl =
-                    "https://raw.githubusercontent.com/DeezVrOfficial/Deez-s-Serverdata/refs/heads/main/data";
-
-            string blacklistUrl =
-                    "https://raw.githubusercontent.com/DeezVrOfficial/Deez-s-Serverdata/refs/heads/main/data";
-
-            string cosmeticsUrl =
-                    "https://raw.githubusercontent.com/DeezVrOfficial/Deez-s-Serverdata/refs/heads/main/data";
-
-            string modsJson = await client.GetStringAsync(modsUrl);
-            string playersJson = await client.GetStringAsync(playersUrl);
-            string blacklistJson = await client.GetStringAsync(blacklistUrl);
-            string cosmeticsJson = await client.GetStringAsync(cosmeticsUrl);
+            string dataJson = await client.GetStringAsync(dataUrl);
 
             List<ModEntry> modsListObjects =
-                    JsonConvert.DeserializeObject<List<ModEntry>>(modsJson);
+                    JsonConvert.DeserializeObject<List<ModEntry>>(dataJson);
 
             List<PlayerEntry> playersListObjects =
-                    JsonConvert.DeserializeObject<List<PlayerEntry>>(playersJson);
+                    JsonConvert.DeserializeObject<List<PlayerEntry>>(dataJson);
 
             List<string> blacklistedIds =
-                    JsonConvert.DeserializeObject<List<string>>(blacklistJson);
+                    JsonConvert.DeserializeObject<List<string>>(dataJson);
 
             List<CosmeticEntry> cosmeticsListObjects =
-                    JsonConvert.DeserializeObject<List<CosmeticEntry>>(cosmeticsJson);
+                    JsonConvert.DeserializeObject<List<CosmeticEntry>>(dataJson);
 
             specialModsList = modsListObjects.ToDictionary(x => x.Key, x => x.Value);
             specialPlayers = playersListObjects.ToDictionary(x => x.Key, x => x.Value);
