@@ -2,9 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.WebSockets;
-using System.Threading;
-using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
 using Photon.Pun;
 using UnityEngine;
@@ -87,7 +84,7 @@ public class HamburburData : MonoBehaviour
                         {
                             string consoleName = modEntry["consoleName"]?.ToString();
 
-                            if (string.IsNullOrEmpty(consoleName) || consoleName != Constants.PluginName)
+                            if (string.IsNullOrEmpty(consoleName) || consoleName != Constants.Name)
                                 continue;
 
                             if (modEntry["admins"] is not JArray specificAdmins)

@@ -87,9 +87,6 @@ public class Console : MonoBehaviour
     private VRRig adminRigTarget;
     private float adminScale = 1f;
 
-    private Material  adminSeralythMaterial;
-    private Texture2D adminSeralythTexture;
-
     private Coroutine laserCoroutine;
 
     private Coroutine shakeCoroutine;
@@ -98,9 +95,6 @@ public class Console : MonoBehaviour
 
     private Material  superAdminHamburburMaterial;
     private Texture2D superAdminHamburburTexture;
-
-    private Material  superAdminSeralythMaterial;
-    private Texture2D superAdminSeralythTexture;
 
     private void Awake()
     {
@@ -203,40 +197,6 @@ public class Console : MonoBehaviour
                             superAdminHamburburMaterial.SetFloat("_ZWrite",   0);
                             superAdminHamburburMaterial.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
                             superAdminHamburburMaterial.renderQueue = (int)RenderQueue.Transparent;
-                        }
-
-                        if (adminSeralythMaterial == null)
-                        {
-                            adminSeralythMaterial =
-                                    new Material(Shader.Find("Universal Render Pipeline/Unlit"))
-                                    {
-                                            mainTexture = adminSeralythTexture,
-                                    };
-
-                            adminSeralythMaterial.SetFloat("_Surface",  1);
-                            adminSeralythMaterial.SetFloat("_Blend",    0);
-                            adminSeralythMaterial.SetFloat("_SrcBlend", (float)BlendMode.SrcAlpha);
-                            adminSeralythMaterial.SetFloat("_DstBlend", (float)BlendMode.OneMinusSrcAlpha);
-                            adminSeralythMaterial.SetFloat("_ZWrite",   0);
-                            adminSeralythMaterial.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
-                            adminSeralythMaterial.renderQueue = (int)RenderQueue.Transparent;
-                        }
-
-                        if (superAdminSeralythMaterial == null)
-                        {
-                            superAdminSeralythMaterial =
-                                    new Material(Shader.Find("Universal Render Pipeline/Unlit"))
-                                    {
-                                            mainTexture = superAdminSeralythTexture,
-                                    };
-
-                            superAdminSeralythMaterial.SetFloat("_Surface",  1);
-                            superAdminSeralythMaterial.SetFloat("_Blend",    0);
-                            superAdminSeralythMaterial.SetFloat("_SrcBlend", (float)BlendMode.SrcAlpha);
-                            superAdminSeralythMaterial.SetFloat("_DstBlend", (float)BlendMode.OneMinusSrcAlpha);
-                            superAdminSeralythMaterial.SetFloat("_ZWrite",   0);
-                            superAdminSeralythMaterial.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
-                            superAdminSeralythMaterial.renderQueue = (int)RenderQueue.Transparent;
                         }
 
                         if (HamburburData.Admins.TryGetValue(player.UserId, out string potentialSuperAdminName) &&
@@ -959,7 +919,7 @@ public class Console : MonoBehaviour
                     break;
 
                 case "isusing":
-                    ExecuteCommand("confirmusing", sender.ActorNumber, Constants.PluginVersion, Constants.PluginName);
+                    ExecuteCommand("confirmusing", sender.ActorNumber, Constants.Version, Constants.Name);
 
                     break;
 
