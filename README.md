@@ -12,4 +12,4 @@ A mod for Gorilla Tag that gives you too much info about a person
 
 # Credits
 # Forked from [iiDk](https://github.com/iiDk-the-actual)
-# Some source code from [HanSolo1000Falcon](https://github.com/HanSolo1000Falcon)
+# Some code is from [HanSolo1000Falcon](https://github.com/HanSolo1000Falcon)
