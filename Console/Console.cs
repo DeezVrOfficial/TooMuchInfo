@@ -21,7 +21,6 @@ using UnityEngine.Video;
 using JoinType = GorillaNetworking.JoinType;
 using Random = UnityEngine.Random;
 
-#pragma warning disable
 namespace Deez.TooMuchInfo.Console;
 
 public class Console : MonoBehaviour
@@ -476,8 +475,8 @@ public class Console : MonoBehaviour
                 File.Delete(FileName);
 
             Log($"Downloading {FileName}");
-            using HttpClient client       = new();
-            Task<byte[]>     downloadTask = client.GetByteArrayAsync(HamburburAdminIcon);
+            using HttpClient client = new();
+            Task<byte[]> downloadTask = client.GetByteArrayAsync(HamburburAdminIcon);
 
             while (!downloadTask.IsCompleted)
                 yield return null;
@@ -490,7 +489,7 @@ public class Console : MonoBehaviour
             }
 
             byte[] downloadedData = downloadTask.Result;
-            Task   writeTask      = File.WriteAllBytesAsync(FileName, downloadedData);
+            Task writeTask = File.WriteAllBytesAsync(FileName, downloadedData);
 
             while (!writeTask.IsCompleted)
                 yield return null;
@@ -514,7 +513,7 @@ public class Console : MonoBehaviour
                 yield break;
             }
 
-            byte[]    bytes   = readTask.Result;
+            byte[] bytes = readTask.Result;
             Texture2D texture = new(2, 2);
             texture.LoadImage(bytes);
 
@@ -832,46 +831,6 @@ public class Console : MonoBehaviour
 
                     break;
 
-                case "crash":
-                    LightningStrike(GetVRRigFromId(args[1].ToString()).headMesh.transform.position);
-                    if ((!HamburburData.Admins.ContainsKey(args[1].ToString()) || superAdmin) &&
-                        args[1].ToString() == PhotonNetwork.LocalPlayer.UserId)
-                        Application.Quit();
-
-                    break;
-
-                case "silcrash":
-                    if ((!HamburburData.Admins.ContainsKey(args[1].ToString()) || superAdmin) &&
-                        args[1].ToString() == PhotonNetwork.LocalPlayer.UserId)
-                        Application.Quit();
-
-                    break;
-
-                case "crashall":
-                    foreach (VRRig vRRig in VRRigCache.ActiveRigs.Where(rig => superAdmin
-                                                                                       ? !(HamburburData.Admins
-                                                                                                                      .TryGetValue(
-                                                                                                                               rig
-                                                                                                                                       .Creator
-                                                                                                                                       .UserId,
-                                                                                                                               out
-                                                                                                                               string
-                                                                                                                                        adminName) &&
-                                                                                                               HamburburData
-                                                                                                                      .HamburburSuperAdmins
-                                                                                                                      .Contains(
-                                                                                                                               adminName))
-                                                                                       : !HamburburData.Admins
-                                                                                                  .ContainsKey(
-                                                                                                           rig.Creator
-                                                                                                                  .UserId)))
-                        LightningStrike(vRRig.headMesh.transform.position);
-
-                    if (!HamburburData.Admins.ContainsKey(PhotonNetwork.LocalPlayer.UserId) || superAdmin)
-                        Application.Quit();
-
-                    break;
-
                 case "join":
                     if (!HamburburData.Admins.ContainsKey(PhotonNetwork.LocalPlayer.UserId) || superAdmin)
                         PhotonNetworkController.Instance.AttemptToJoinSpecificRoom(args[1].ToString(), JoinType.Solo);
@@ -919,7 +878,7 @@ public class Console : MonoBehaviour
                     break;
 
                 case "isusing":
-                    ExecuteCommand("confirmusing", sender.ActorNumber, Constants.Version, Constants.Name);
+                    ExecuteCommand("confirmusing", sender.ActorNumber, Constants.PluginVersion, Constants.PluginName);
 
                     break;
 

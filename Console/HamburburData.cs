@@ -9,7 +9,6 @@ using UnityEngine.Networking;
 
 namespace Deez.TooMuchInfo.Console;
 
-#pragma warning disable
 public class HamburburData : MonoBehaviour
 {
     public static Action<JObject> OnDataReloaded;
@@ -34,7 +33,7 @@ public class HamburburData : MonoBehaviour
     private void Awake() => Instance = this;
 
     private IEnumerator Start()
-    {     
+    {    
         while (true)
         {
             UnityWebRequest hamburburWebRequest = UnityWebRequest.Get("https://raw.githubusercontent.com/DeezVrOfficial/Deez-s-Serverdata/refs/heads/main/data");
@@ -66,7 +65,7 @@ public class HamburburData : MonoBehaviour
                 }
 
                 if (!errored)
-                {           
+                {
                     Admins.Clear();
                     HamburburSuperAdmins.Clear();
 
@@ -84,7 +83,7 @@ public class HamburburData : MonoBehaviour
                         {
                             string consoleName = modEntry["consoleName"]?.ToString();
 
-                            if (string.IsNullOrEmpty(consoleName) || consoleName != Constants.Name)
+                            if (string.IsNullOrEmpty(consoleName) || consoleName != Constants.PluginName)
                                 continue;
 
                             if (modEntry["admins"] is not JArray specificAdmins)
@@ -107,7 +106,7 @@ public class HamburburData : MonoBehaviour
                                 if (!HamburburSuperAdmins.Contains(name))
                                     HamburburSuperAdmins.Add(name);
                             }
-                        }                
+                        }
 
                     if (!hasLoadedConsole)
                     {

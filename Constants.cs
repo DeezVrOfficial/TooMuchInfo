@@ -2,9 +2,9 @@
 {
     internal class Constants
     {
-        public const string GUID = "deez.toomuchinfo";
-        public const string Name = "TooMuchInfo";
-        public const string HashKey = "github.com/DeezVrOffical/TooMuchInfo";
-        public const string Version = "1.1.3";
+        public const string PluginGuid    = "deez.hansolo1000falcon.toomuchinfo";
+        public const string PluginName    = "TooMuchInfo";
+        public const string PluginVersion = "1.0.4";
+        public const string HashKey       = "github.com/DeezVrOfficial/TooMuchInfo";
     }
 }
